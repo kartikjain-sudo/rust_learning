@@ -5,6 +5,12 @@ struct Vehicle {
     year: i32,
 }
 
+struct Bus {
+    class: String,
+    model: String,
+    year: i32,
+}
+
 trait VehicleInfo {
     fn new(&mut self, class: String, model: String, year: i32) -> Vehicle {
         Vehicle {
@@ -27,6 +33,16 @@ impl VehicleInfo for Vehicle {
     }
 }
 
+impl VehicleInfo for Bus {
+    fn get_vehicle_info(&self) -> String {
+        format!("{} {} {}", self.class, self.model, self.year)
+    }
+
+    fn get_year(&self) -> i32 {
+        self.year
+    }
+}
+
 fn main() {
     // println!("Hello, world!");
     let car = Vehicle {
@@ -34,5 +50,7 @@ fn main() {
         model: String::from("BMW X5"),
         year: 2019,
     };
+
+    // let volvo = Bus::new("A class", "marcopolo", 2014);
     print!("{}", car.get_vehicle_info());
 }
