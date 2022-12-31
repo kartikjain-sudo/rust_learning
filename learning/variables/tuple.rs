@@ -1,3 +1,5 @@
+use std::io;
+
 fn tuple() {
     // let x:(u32, str, f32) = (50, "kartik", 7.6); // throws error for string (doesn't have a size known at compile-time)
     let x = (50, "kartik", 7.6);
@@ -9,9 +11,21 @@ fn tuple() {
 
 fn array() {
     let a:[i32; 5] = [1,2,3,4,5]; 
-    let b = [3; 5];
 
-    println!("{} {} {}", a[3], b[0], b[4])
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("not a num");
+    
+    let b = [3; 5];  // => [3, 3, 3, 3, 3]
+
+    println!("{} {} {}", b[1], a[index], b[4])
 }
 
 fn main() {
