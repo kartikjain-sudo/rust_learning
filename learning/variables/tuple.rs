@@ -7,6 +7,14 @@ fn tuple() {
     println!("{} {} {}", c, a, b);
 }
 
+fn array() {
+    let a:[i32; 5] = [1,2,3,4,5]; 
+    let b = [3; 5];
+
+    println!("{} {} {}", a[3], b[0], b[4])
+}
+
 fn main() {
     tuple();
+    array();
 }
