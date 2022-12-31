@@ -9,8 +9,16 @@ fn tuple() {
     println!("{} {} {}", c, a, b);
 }
 
-fn array() {
+fn array(index: usize) {
     let a:[i32; 5] = [1,2,3,4,5]; 
+    
+    let b = [3; 5];  // => [3, 3, 3, 3, 3]
+
+    println!("{} {} {}", b[1], a[index], b[4])
+}
+
+fn main() {
+    tuple();
 
     let mut index = String::new();
 
@@ -22,13 +30,6 @@ fn array() {
         .trim()
         .parse()
         .expect("not a num");
-    
-    let b = [3; 5];  // => [3, 3, 3, 3, 3]
 
-    println!("{} {} {}", b[1], a[index], b[4])
-}
-
-fn main() {
-    tuple();
-    array();
+    array(index);
 }
