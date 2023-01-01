@@ -12,6 +12,14 @@ fn read_string() {
     println!("{}", input);
 }
 
+fn string_mut() {
+    let mut text = String::from("hello");
+
+    text.push_str(", world!");
+    println!("{}", text);
+}
+
 fn main() {
-    read_string();
+    // read_string();
+    string_mut();
 }
