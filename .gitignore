@@ -1,3 +1,6 @@
 /target
 learning/variables/*
 !learning/variables/*.rs
+
+learning/ownership/*
+!learning/ownership/*.rs
