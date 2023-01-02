@@ -4,3 +4,6 @@ learning/variables/*
 
 learning/ownership/*
 !learning/ownership/*.rs
+
+learning/misc/*
+!learning/misc/*.rs
