@@ -6,10 +6,11 @@ fn read_string() {
     
     io::stdin().read_line(&mut input).expect("string is expected");
     
-    // input = input.trim().to_string();
-    // index.push_str(", ok");
+    input = input.trim().to_string();
+    input.push_str(", ok");
+    // input = input.trim().parse().expect("str");
     
-    println!("{}", input);
+    print!("{}", input);
 }
 
 fn string_mut() {
@@ -20,6 +21,6 @@ fn string_mut() {
 }
 
 fn main() {
-    // read_string();
-    string_mut();
+    read_string();
+    // string_mut();
 }
