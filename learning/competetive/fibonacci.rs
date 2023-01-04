@@ -8,24 +8,25 @@ fn fib(num: u32) {
     let mut i = 0;
     let mut c = 0;
 
-    if i == 0 { return; }
+    if num == 0 { return; }
 
-    if i == 1 {
+    if num == 1 {
         println!("{c} ");
         return;
     }
-    else if i == 2 {
+    else if num == 2 {
         println!("{a} {b} ");
         return;
     }
 
-    println!("{a} {b} ");
+    print!("{a} {b} ");
 
     while i < num-2 {
         c = a + b;
         a = b;
         b = c;
-        println!("{c} ");
+        print!("{} ", c.to_string().trim());
+        i += 1;
     }
     return;
 }
@@ -41,10 +42,8 @@ fn main() {
 
     let num = match num.trim().parse::<u32>() {
         Ok(i) => i,
-        Err(..) => println!("Not a num"),
+        Err(..) => 0,
     };
 
-    // fib(num);
-
-    println!("{}", num);
+    fib(num);
 }
