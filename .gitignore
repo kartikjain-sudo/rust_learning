@@ -7,3 +7,6 @@ learning/ownership/*
 
 learning/misc/*
 !learning/misc/*.rs
+
+learning/competetive/*
+!learning/competetive/*.rs
