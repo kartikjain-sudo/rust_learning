@@ -5,33 +5,25 @@ fn fib(num: u32) {
     let mut a = 0;
     let mut b = 1;
 
-    // let mut i = 0;
-    let mut c = 0;
-
-    if num == 0 { return; }
-
-    if num == 1 {
-        println!("{c} ");
-        return;
-    }
-    else if num == 2 {
-        println!("{a} {b} ");
-        return;
+    match num {
+        0 => {
+            return;
+        },
+        1 => {
+            println!("0 ");
+            return;
+        },
+        2 => {
+            println!("0 1 ");
+            return;
+        },
+        _ => (),
     }
 
     print!("{a} {b} ");
 
-    // while i < num-2 {
-    //     c = a + b;
-    //     a = b;
-    //     b = c;
-    //     print!("{} ", c.to_string().trim());
-    //     i += 1;
-    // }
-    // return;
-
     for _ in 2..num {
-        c = a + b;
+        let c = a + b;
         a = b;
         b = c;
         print!("{} ", c.to_string().trim());
