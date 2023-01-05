@@ -5,7 +5,7 @@ fn fib(num: u32) {
     let mut a = 0;
     let mut b = 1;
 
-    let mut i = 0;
+    // let mut i = 0;
     let mut c = 0;
 
     if num == 0 { return; }
@@ -21,12 +21,20 @@ fn fib(num: u32) {
 
     print!("{a} {b} ");
 
-    while i < num-2 {
+    // while i < num-2 {
+    //     c = a + b;
+    //     a = b;
+    //     b = c;
+    //     print!("{} ", c.to_string().trim());
+    //     i += 1;
+    // }
+    // return;
+
+    for _ in 2..num {
         c = a + b;
         a = b;
         b = c;
         print!("{} ", c.to_string().trim());
-        i += 1;
     }
     return;
 }
