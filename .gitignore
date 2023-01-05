@@ -1,12 +1,4 @@
 /target
-learning/variables/*
-!learning/variables/*.rs
 
-learning/ownership/*
-!learning/ownership/*.rs
-
-learning/misc/*
-!learning/misc/*.rs
-
-learning/competetive/*
-!learning/competetive/*.rs
+learning/*/*
+!learning/*/*.rs
