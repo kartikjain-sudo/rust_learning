@@ -1,34 +1,34 @@
 use std::io;
 
-fn fib(num: u32) {
+fn fib(num: u32, res: &mut Vec<i32>) -> &Vec<i32> {
 
     let mut a = 0;
     let mut b = 1;
 
     match num {
         0 => {
-            return;
+            return res;
         },
         1 => {
-            println!("0 ");
-            return;
+            res.push(a);
         },
         2 => {
-            println!("0 1 ");
-            return;
+            res.push(a);
+            res.push(b);
         },
         _ => (),
     }
 
-    print!("{a} {b} ");
+    res.push(a);
+    res.push(b);
 
     for _ in 2..num {
         let c = a + b;
         a = b;
         b = c;
-        print!("{} ", c.to_string().trim());
+        res.push(c);
     }
-    return;
+    return &res;
 }
 
 fn main() {
@@ -45,5 +45,9 @@ fn main() {
         Err(..) => 0,
     };
 
-    fib(num);
+    let mut res:Vec<i32> = Vec::new();
+
+    res = fib(num, res);
+
+    println!("{:?}", res);
 }
