@@ -1,6 +1,6 @@
 use std::io;
 
-fn fib(num: u32) -> Vec<i32> {
+fn fib(num: u32) -> Vec<u64> {
 
     let mut res = Vec::new();
     let mut a = 0;
@@ -47,7 +47,7 @@ fn main() {
         Err(..) => 0,
     };
 
-    let res:Vec<i32> = fib(num);
+    let res:Vec<u64> = fib(num);
 
     println!("{:?}", res);
 }
