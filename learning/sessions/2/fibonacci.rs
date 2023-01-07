@@ -1,7 +1,8 @@
 use std::io;
 
-fn fib(num: u32, res: &mut Vec<i32>) -> &Vec<i32> {
+fn fib(num: u32) -> Vec<i32> {
 
+    let mut res = Vec::new();
     let mut a = 0;
     let mut b = 1;
 
@@ -16,19 +17,20 @@ fn fib(num: u32, res: &mut Vec<i32>) -> &Vec<i32> {
             res.push(a);
             res.push(b);
         },
-        _ => (),
+        _ => {
+            res.push(a);
+            res.push(b);
+
+            for _ in 2..num {
+                let c = a + b;
+                a = b;
+                b = c;
+                res.push(c);
+            }
+        },
     }
 
-    res.push(a);
-    res.push(b);
-
-    for _ in 2..num {
-        let c = a + b;
-        a = b;
-        b = c;
-        res.push(c);
-    }
-    return &res;
+    return res;
 }
 
 fn main() {
@@ -45,9 +47,7 @@ fn main() {
         Err(..) => 0,
     };
 
-    let mut res:Vec<i32> = Vec::new();
-
-    res = fib(num, res);
+    let res:Vec<i32> = fib(num);
 
     println!("{:?}", res);
 }
