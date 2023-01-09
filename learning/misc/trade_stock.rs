@@ -23,3 +23,22 @@
 
 // 1 <= prices.length <= 105
 // 0 <= prices[i] <= 104
+
+pub fn max_profit(prices: &Vec<i32>) -> i32 {
+    let mut min = 10000; // 2**31-1
+    let mut profit = 0;
+
+    for item in prices {
+        profit = profit.max(*item-min);
+        min = min.min(*item);
+    }
+    profit
+}
+
+fn main() {
+    let prices = vec![54, 762, 123, 87, 91, 13, 98, 2356];
+
+    let ans = max_profit(&prices);
+
+    println!("max profit is {}", ans);
+}
