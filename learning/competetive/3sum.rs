@@ -30,3 +30,31 @@
 
 // 3 <= nums.length <= 3000
 // -105 <= nums[i] <= 105
+
+use std::collections::HashMap;
+
+pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    let mut res = Vec::new();
+    let mut map = HashMap::new();
+
+    for (i, item) in nums.iter().enumerate() {
+        let temp = match map.get(item) {
+            Some(&j) => j,
+            None => (),
+        };
+        println!("i: {}, item:{} map:{:?}", i, -item, temp);
+        // if map.contains_key(-item) {
+        //     res.push(vec![item, nums[map.get(-item).unwrap()], -1*(item + map.get(-item).unwrap())]); // *item, nums[map.get(-item).unwrap()], nums[i]]);
+        // }
+        for j in i+1..nums.len() {
+            map.insert(nums[j]+nums[i], i);
+        }
+    }
+    println!("{:?}", res);
+    res
+}
+
+fn main() {
+    let res = three_sum(vec![-1, 0, 1, 2, -1, 4]);
+    println!("{:?}", res);
+}
