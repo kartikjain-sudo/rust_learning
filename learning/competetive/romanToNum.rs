@@ -42,3 +42,29 @@
 // s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 // It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
+pub fn roman_to_int(s: String) -> i32 {
+    let mut ans = 0;
+    let mut prev = 10000;
+    for num in s.chars() {
+        let temp = match num {
+            'I' => 1,
+            'V' => 5,
+            'X' => 10,
+            'L' => 50,
+            'C' => 100,
+            'D' => 500,
+            'M' => 1000,
+            _ => 0,
+        };
+        ans += temp;
+        if prev < temp {ans -= 2*prev;}
+        prev = temp;
+    }
+    return ans;
+}
+
+fn main() {
+    let s = String::from("MCMXCIV");
+    let ans = roman_to_int(s);
+    println!("ans is {}", ans);
+}
