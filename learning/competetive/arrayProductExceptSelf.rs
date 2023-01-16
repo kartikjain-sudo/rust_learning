@@ -24,3 +24,39 @@
  
 
 // Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+use std::vec;
+
+pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
+    let mut pro = 1;
+    let mut zeroCount = 0;
+    let mut pro_without_0 = 1;
+    for item in &nums {
+        pro = pro*item;
+        if *item == 0 {
+            zeroCount += 1;
+        }
+        if zeroCount < 2 {
+            if *item == 0 {
+                continue;
+            } else {
+                pro_without_0 = pro_without_0*item
+            }
+        }
+    }
+
+    let mut res: Vec<i32> = Vec::new();
+    for (i,item) in nums.iter().enumerate() {
+        if nums[i] == 0 {
+            if zeroCount < 2 {
+                res.push(pro_without_0);
+            } else {
+                res.push(0);
+            }
+        } else {
+            res.push(pro/nums[i]);
+        }
+    }
+
+    return res;
+}
